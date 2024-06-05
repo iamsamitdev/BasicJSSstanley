@@ -1,0 +1,124 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        body {
+            font-family: Tahoma;
+        }
+
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #333;
+        }
+
+        section.left {
+            float: left;
+            width: 50%;
+        }
+
+        section.right {
+            float: right;
+            width: 50%;
+        }
+
+        label {
+            display: inline-block;
+            width: 100px;
+        }
+
+        div{
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Form Add User</h1>
+
+    <section class="left">
+        <form name="registerform">
+            <div>
+                <label>Fullname</label>
+                <input type="text" name="fullname">
+            </div>
+
+            <div>
+                <label>Age</label>
+                <input type="number" name="age">
+            </div>
+
+            <div>
+                <label>Mobile</label>
+                <input type="mobile" name="mobile">
+            </div>
+
+            <div>
+                <label>Address</label>
+                <textarea name="address"></textarea>
+            </div>
+
+            <div>
+                <label></label>
+                <button type="button" onclick="submitForm()">Submit</button>
+            </div>
+            
+        </form>
+    </section>
+
+    <section class="right">
+        <table border="1" cellspacing="0" cellpadding="5">
+            <thead>
+                <th>ID</th>
+                <th>Fullname</th>
+                <th>Age</th>
+                <th>Mobile</th>
+                <th>Address</th>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </section>
+
+    <script>
+        function submitForm() {
+            // รับค่าจากฟอร์ม
+            var fullname = document.registerform.fullname.value;
+            var age = document.registerform.age.value;
+            var mobile = document.registerform.mobile.value;
+            var address = document.registerform.address.value;
+
+            console.log(fullname + ' ' + age + ' ' + mobile + ' ' + address);
+
+            if(fullname != '' && age != '' && mobile != '' && address != '')
+            {
+                // ส่งค่าไปแสดงผลในตาราง
+                // นับจำนวนแถวที่มีอยู่ในตาราง
+                var rowCount = document.querySelector('table tbody').rows.length;
+                var tbody = "<tr>";
+                    tbody += "<td>" + (rowCount+1) + "</td>";
+                    tbody += "<td>" + fullname + "</td>";
+                    tbody += "<td>" + age + "</td>";
+                    tbody += "<td>" + mobile + "</td>";
+                    tbody += "<td>" + address + "</td>";
+                    tbody += "</tr>";
+
+                document.querySelector('table tbody').innerHTML += tbody;
+
+                // clear ค่าในฟอร์ม
+                document.registerform.fullname.value = '';
+                document.registerform.age.value = '';
+                document.registerform.mobile.value = '';
+                document.registerform.address.value = '';
+
+                // focus ไปที่ช่อง fullname
+                document.registerform.fullname.focus();
+            } else {
+                alert('กรุณากรอกข้อมูลให้ครบถ้วน');
+            }
+
+        }
+    </script>
+</body>
+</html>

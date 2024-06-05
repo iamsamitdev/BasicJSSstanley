@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Write</title>
+</head>
+<body>
+    <h1>Document Write</h1>
+
+    <script>
+        // แสดงข้อความบนหน้าเว็บ
+        document.write("<b>Welcome to JavaScript</b>");
+        document.write("<p><font color='red'>ยินดีต้อนรับสู่การเรียนจาวาสคริปต์</font></p>");
+        document.write((2+3)*(4-5));
+
+        // Confirm แสดงข้อความและปุ่ม OK และ Cancel
+        // var status = confirm("Are you sure?");
+        // console.log(status);
+
+        // ตรวจสอบค่าที่ผู้ใช้คลิก
+        // if(status=="true"){
+        //     document.write("<p>You clicked OK</p>");
+        // } else {
+        //     document.write("<p>You clicked Cancel</p>");
+        // }
+
+        // Prompt แสดงข้อความและช่องให้ผู้ใช้ป้อนข้อมูล
+        var name = prompt("กรุณป้อนชื่อ", "");
+        var age  = prompt("กรุณป้อนอายุ", "");
+        document.write("<p>คุณชื่อ " + name + " อายุ " + age + "</p>");
+
+    </script>
+</body>
+</html>
